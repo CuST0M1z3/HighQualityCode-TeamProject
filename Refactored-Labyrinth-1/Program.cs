@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-namespace Labyrinth
+﻿namespace Labyrinth
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.IO;
+
     enum Direction { Blank = -1, Left, Up, Right, Down };
 
     class Message

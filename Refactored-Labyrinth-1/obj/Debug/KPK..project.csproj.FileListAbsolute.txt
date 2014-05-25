@@ -3,3 +3,5 @@ C:\Users\SpooN\Desktop\HQCTeamProject\Labyrinth\Labyrinth\Labyrinth-1\bin\Debug\
 C:\Users\SpooN\Desktop\HQCTeamProject\Labyrinth\Labyrinth\Labyrinth-1\obj\Debug\KPK..project.csprojResolveAssemblyReference.cache
 C:\Users\SpooN\Desktop\HQCTeamProject\Labyrinth\Labyrinth\Labyrinth-1\obj\Debug\Labyrinth.exe
 C:\Users\SpooN\Desktop\HQCTeamProject\Labyrinth\Labyrinth\Labyrinth-1\obj\Debug\Labyrinth.pdb
+E:\Developer\GitHub Repository\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\Labyrinth.exe
+E:\Developer\GitHub Repository\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\Labyrinth.pdb

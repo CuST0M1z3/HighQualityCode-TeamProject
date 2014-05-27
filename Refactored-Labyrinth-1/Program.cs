@@ -10,7 +10,7 @@
 
     class Message
     {
-        public void invalid()
+        public void Invalid()
         {
             Console.WriteLine("* Invalid move!");
         }

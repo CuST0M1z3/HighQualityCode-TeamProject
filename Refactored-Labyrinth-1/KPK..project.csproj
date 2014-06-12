@@ -67,6 +67,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dialogs\GameDialog.cs" />
+    <Compile Include="Enumerations\Directions.cs" />
+    <Compile Include="GameLogic\Position.cs" />
+    <Compile Include="GameStatistics\Scoreboard.cs" />
+    <Compile Include="GameUI\Playfield.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>

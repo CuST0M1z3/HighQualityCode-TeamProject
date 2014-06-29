@@ -20,10 +20,11 @@
 
         static void StartNewGame()
         {
+            player = new Player();
             dialog.IntroMessage();
             playfield.ResetPlayfield();
             Console.WriteLine();
-            playfield.PrintPlayfield();
+            playfield.PrintPlayfield(player);
             numberOfMoves = 0;
         }
 
@@ -49,10 +50,11 @@
                         if (playfield.IsValidMovePosition(player))
                         {
                             numberOfMoves++;
-                            playfield.PrintPlayfield();
+                            playfield.PrintPlayfield(player);
                         }
                         else
                         {
+                            player.Move(Directions.Right);
                             dialog.InvalidMoveMessage();
                         }
                         break;
@@ -61,10 +63,11 @@
                         if (playfield.IsValidMovePosition(player))
                         {
                             numberOfMoves++;
-                            playfield.PrintPlayfield();
+                            playfield.PrintPlayfield(player);
                         }
                         else
                         {
+                            player.Move(Directions.Down);
                             dialog.InvalidMoveMessage();
                         }
                         break;
@@ -73,10 +76,11 @@
                         if (playfield.IsValidMovePosition(player))
                         {
                             numberOfMoves++;
-                            playfield.PrintPlayfield();
+                            playfield.PrintPlayfield(player);
                         }
                         else
                         {
+                            player.Move(Directions.Left);
                             dialog.InvalidMoveMessage();
                         }
                         break;
@@ -85,10 +89,11 @@
                         if (playfield.IsValidMovePosition(player))
                         {
                             numberOfMoves++;
-                            playfield.PrintPlayfield();
+                            playfield.PrintPlayfield(player);
                         }
                         else
                         {
+                            player.Move(Directions.Up);
                             dialog.InvalidMoveMessage();
                         }
                         break;

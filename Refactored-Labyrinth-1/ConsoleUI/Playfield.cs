@@ -9,7 +9,7 @@ namespace Labyrinth.ConsoleUI
     public class Playfield
     {
         private const int PLAYFIELD_SIZE = 7;
-        private int[,] Labyrinth { get; set; }
+        private int[,] Labyrinth { get; set; }        
 
         public Playfield()
         {
@@ -43,7 +43,7 @@ namespace Labyrinth.ConsoleUI
 
         public bool IsValidMovePosition(Player player)
         {
-            return ((Labyrinth[player.XPosition, player.YPosition] == 0) && IsInPlayfieldRange(player));
+            return ((Labyrinth[player.XPosition, player.YPosition] == 0) && (IsInPlayfieldRange(player)));
         }
 
         //bool isValidMove(Player position, Direction direction)
@@ -78,13 +78,11 @@ namespace Labyrinth.ConsoleUI
         //    return isBlankPosition(newPosition);
         //}
 
-
-        public void PrintPlayfield()
+        public void PrintPlayfield(Player player)
         {
-            Player player = new Player();
-            for (int playfieldRow = 0; playfieldRow < PLAYFIELD_SIZE; playfieldRow++)
+            for (int playfieldCol = 0; playfieldCol < PLAYFIELD_SIZE; playfieldCol++)
             {
-                for (int playfieldCol = 0; playfieldCol < PLAYFIELD_SIZE; playfieldCol++)
+                for (int playfieldRow = 0; playfieldRow < PLAYFIELD_SIZE; playfieldRow++)
                 {
                     if (player.XPosition == playfieldRow && player.YPosition == playfieldCol)
                     {

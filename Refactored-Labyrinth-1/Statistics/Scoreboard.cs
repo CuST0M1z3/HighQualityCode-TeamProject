@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Labyrinth.GameStatistics
+namespace Labyrinth.Statistics
 {
     public class Scoreboard
     {

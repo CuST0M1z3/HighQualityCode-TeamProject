@@ -12,12 +12,13 @@
 
     public class GameLabyrinth
     {
-        static Playfield playfield = new Playfield();
+        static Playfield playfield = new Playfield(); //-> Remake into Singleton Desing Pattern (Creational 1)
         static GameDialog dialog = new GameDialog();
         static Scoreboard scores;
         static Player player = new Player();
         static int numberOfMoves = 0;
 
+        //Remake to a Builder Design Pattern (Creational 2)
         static void StartNewGame()
         {
             player = new Player();
@@ -35,12 +36,13 @@
             scores = new Scoreboard();
             String input = "";
             dialog.EnterYourMoveMessage();
+            //Remake using Command Desing Pattern (Behavioral 1)
             while ((input = Console.ReadLine()) != "exit")
             {
                 switch (input)
                 {
                     case "top":
-                        scores.pokazvane();
+                        scores.show();
                         break;
                     case "restart":
                         StartNewGame();
@@ -102,7 +104,7 @@
                         break;
                 }
 
-                if (player.IsWinning())
+                if (player.IsWinning())  //-> Observer Pattern (Behavioral 2)
                 {
                     dialog.WinnerMessage(numberOfMoves);
                     string name = Console.ReadLine();

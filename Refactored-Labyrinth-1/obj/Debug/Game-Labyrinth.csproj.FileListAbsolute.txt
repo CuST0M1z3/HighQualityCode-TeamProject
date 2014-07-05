@@ -3,3 +3,8 @@ C:\Users\SpooN\Desktop\HQC-TeamProject\HighQualityCode-TeamProject\Refactored-La
 C:\Users\SpooN\Desktop\HQC-TeamProject\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\Game-Labyrinth.csprojResolveAssemblyReference.cache
 C:\Users\SpooN\Desktop\HQC-TeamProject\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\Labyrinth.exe
 C:\Users\SpooN\Desktop\HQC-TeamProject\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\Labyrinth.pdb
+C:\Users\soryusen\Desktop\Labyrinth\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\Labyrinth.exe
+C:\Users\soryusen\Desktop\Labyrinth\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\Labyrinth.pdb
+C:\Users\soryusen\Desktop\Labyrinth\HighQualityCode-TeamProject\Refactored-Labyrinth-1\bin\Debug\Labyrinth.exe
+C:\Users\soryusen\Desktop\Labyrinth\HighQualityCode-TeamProject\Refactored-Labyrinth-1\bin\Debug\Labyrinth.pdb
+C:\Users\soryusen\Desktop\Labyrinth\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\Game-Labyrinth.csprojResolveAssemblyReference.cache

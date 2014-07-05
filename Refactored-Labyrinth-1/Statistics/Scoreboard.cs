@@ -14,7 +14,7 @@ namespace Labyrinth.Statistics
             FileStream stream = file.Open(FileMode.OpenOrCreate, FileAccess.Read);
             stream.Close();
         }
-        public void pokazvane()
+        public void show()
         {
             create();
             FileInfo file = new FileInfo("scoreboard");

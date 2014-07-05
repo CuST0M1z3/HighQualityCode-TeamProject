@@ -1,8 +1,9 @@
 ﻿namespace Labyrinth.Dialogs
 {
     using System;
+    using Labyrinth.Interfaces;
 
-    public class GameDialog
+    public class GameDialog : IGameDialog
     {
         public void InvalidMoveMessage()
         {

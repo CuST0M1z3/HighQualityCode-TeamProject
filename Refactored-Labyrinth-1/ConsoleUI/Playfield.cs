@@ -15,7 +15,7 @@
             this.Labyrinth = new int[PLAYFIELD_SIZE, PLAYFIELD_SIZE];
         }
 
-        public bool IsPlayerIsInPlayfieldRange(Player player)
+        public bool IsPlayerIsInPlayfieldRange(IPlayer player)
         {
             if (0 <= player.XPosition && player.XPosition < PLAYFIELD_SIZE && 0 <= player.YPosition && player.YPosition < PLAYFIELD_SIZE)
             {
@@ -27,7 +27,7 @@
             }
         }
 
-        public bool IsPlayerWinning(Player player)
+        public bool IsPlayerWinning(IPlayer player)
         {
             if (player.XPosition == 0 || player.XPosition == (PLAYFIELD_SIZE - 1) || player.YPosition == 0 || player.YPosition == (PLAYFIELD_SIZE - 1))
             {
@@ -47,7 +47,7 @@
         //    return true;
         //}
 
-        public bool IsValidMovePosition(Player player)
+        public bool IsValidMovePosition(IPlayer player)
         {
             return ((Labyrinth[player.XPosition, player.YPosition] == 0) && (IsPlayerIsInPlayfieldRange(player)));
         }
@@ -63,7 +63,7 @@
         //    return IsValidPosition(newPosition);
         //}
 
-        public bool IsBlankMovePosition(Player player)
+        public bool IsBlankMovePosition(IPlayer player)
         {
             return Labyrinth[player.XPosition, player.YPosition] == -1;
         }
@@ -84,7 +84,7 @@
         //    return isBlankPosition(newPosition);
         //}
 
-        public void PrintPlayfield(Player player)
+        public void PrintPlayfield(IPlayer player)
         {
             for (int playfieldCol = 0; playfieldCol < PLAYFIELD_SIZE; playfieldCol++)
             {
@@ -120,7 +120,7 @@
                 }
             }
 
-            Player player = new Player();
+            IPlayer player = new Player();
             Labyrinth[player.XPosition, player.YPosition] = 0;
 
             Directions direction = Directions.Blank;

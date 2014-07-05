@@ -2,9 +2,9 @@
 {
     using System;
     using System.IO;
-    using System.Linq;
+    using Labyrinth.Interfaces;
 
-    public class Scoreboard
+    public class Scoreboard : IScoreboard
     {
         private void CreateScoreboardDatabaseFile()
         {

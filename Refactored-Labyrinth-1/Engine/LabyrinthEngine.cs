@@ -1,55 +1,67 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Labyrinth.Engine
+﻿namespace Labyrinth.Engine
 {
     using System;
-    using System.Linq;
-    using Labyrinth.ConsoleUI;
-    using Labyrinth.Dialogs;
-    using Labyrinth.Enumerations;
-    using Labyrinth.Statistics;
+    using Labyrinth.Interfaces;
     using Labyrinth.Players;
+    using Labyrinth.Enumerations;
 
-    public class LabyrinthEngine
+    public sealed class LabyrinthEngine : ILabyrinthEngine
     {
-        static Playfield playfield = new Playfield(); //-> Remake into Singleton Desing Pattern (Creational 1)
-        static GameDialog dialog = new GameDialog();
-        static Scoreboard scores;
-        static Player player = new Player();
-        static int numberOfMoves = 0;
+        private static readonly LabyrinthEngine singleInstance = new LabyrinthEngine();
 
-        //Remake to a Builder Design Pattern (Creational 2)
-        static void StartNewGame()
+        private ILabyrinthFactory factory;
+        private IPlayfield playfield; //-> Remake into Singleton Desing Pattern (Creational 1)
+        private IPlayer player;
+        private IGameDialog dialogs;
+        private IScoreboard scoreboard;
+        private int numberOfMoves = 0;
+
+        private LabyrinthEngine()
         {
-            player = new Player();
-            dialog.IntroMessage();
-            playfield.ResetPlayfield();
-            Console.WriteLine();
-            playfield.PrintPlayfield(player);
-            numberOfMoves = 0;
+            this.factory = new LabyrinthFactory();
+            this.playfield = this.factory.CreatePlayfield();
+            this.player = this.factory.CreatePlayer();
+            this.dialogs = this.factory.CreateDialogs();
+            this.scoreboard = this.factory.CreateScoreboard();
         }
 
-        static void Main(string[] args)
+        public static LabyrinthEngine Instance
         {
+            get
+            {
+                return singleInstance;
+            }
+        }
 
-            StartNewGame();
-            scores = new Scoreboard();
+        //Remake to a Builder Design Pattern (Creational 2)
+        public void StartNewGame()
+        {
+            this.player = this.factory.CreatePlayer();
+            this.dialogs.IntroMessage();
+            this.playfield.ResetPlayfield();
+            Console.WriteLine();
+            this.playfield.PrintPlayfield(player); 
+            numberOfMoves = 0;
+            ReadCommands();
+        }
+
+        private void ReadCommands()
+        {
             String input = "";
-            dialog.EnterYourMoveMessage();
+            this.dialogs.EnterYourMoveMessage();
             //Remake using Command Desing Pattern (Behavioral 1)
             while ((input = Console.ReadLine()) != "exit")
             {
                 switch (input)
                 {
                     case "top":
-                        scores.ShowStatistics();
+                        this.scoreboard.ShowStatistics();
                         break;
                     case "restart":
                         StartNewGame();
                         break;
+                    case "exit":
+
                     case "L":
                         player.Move(Directions.Left);
                         if (playfield.IsValidMovePosition(player))
@@ -60,7 +72,7 @@ namespace Labyrinth.Engine
                         else
                         {
                             player.Move(Directions.Right);
-                            dialog.InvalidMoveMessage();
+                            this.dialogs.InvalidMoveMessage();
                         }
                         break;
                     case "U":
@@ -73,7 +85,7 @@ namespace Labyrinth.Engine
                         else
                         {
                             player.Move(Directions.Down);
-                            dialog.InvalidMoveMessage();
+                            this.dialogs.InvalidMoveMessage();
                         }
                         break;
                     case "R":
@@ -86,7 +98,7 @@ namespace Labyrinth.Engine
                         else
                         {
                             player.Move(Directions.Left);
-                            dialog.InvalidMoveMessage();
+                            this.dialogs.InvalidMoveMessage();
                         }
                         break;
                     case "D":
@@ -99,21 +111,21 @@ namespace Labyrinth.Engine
                         else
                         {
                             player.Move(Directions.Up);
-                            dialog.InvalidMoveMessage();
+                            this.dialogs.InvalidMoveMessage();
                         }
                         break;
                     default:
-                        dialog.InvalidMoveMessage();
+                        this.dialogs.InvalidMoveMessage();
                         break;
                 }
 
                 if (playfield.IsPlayerWinning(player))  //-> Observer Pattern (Behavioral 2)
                 {
-                    dialog.WinnerMessage(numberOfMoves);
+                    this.dialogs.WinnerMessage(numberOfMoves);
                     string name = Console.ReadLine();
                     try
                     {
-                        scores.AddTopScoreToScoreboard(name, numberOfMoves);
+                        this.scoreboard.AddTopScoreToScoreboard(name, numberOfMoves);
                     }
                     finally
                     {
@@ -122,10 +134,10 @@ namespace Labyrinth.Engine
                     Console.WriteLine();
                     StartNewGame();
                 }
-                dialog.EnterYourMoveMessage();
+                this.dialogs.EnterYourMoveMessage();
             }
             Console.Write("Good Bye!");
-            Console.ReadKey();
-        }
+            Environment.Exit(0);
+        }     
     }
 }

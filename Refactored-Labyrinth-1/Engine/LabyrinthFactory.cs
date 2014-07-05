@@ -1,12 +1,32 @@
 ﻿namespace Labyrinth.Engine
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
+    using Labyrinth.Interfaces;
+    using Labyrinth.Dialogs;
+    using Labyrinth.Statistics;
+    using Labyrinth.ConsoleUI;
+    using Labyrinth.Players;
 
-    public class LabyrinthFactory
+    public class LabyrinthFactory : ILabyrinthFactory
     {
-        //TODO : Here will make instances of Playfield and Players
+        public IPlayfield CreatePlayfield()
+        {
+            return new Playfield();
+        }
+
+        public IGameDialog CreateDialogs()
+        {
+            return new GameDialog();
+        }
+
+        public IPlayer CreatePlayer()
+        {
+            return new Player();
+        }
+
+        public IScoreboard CreateScoreboard()
+        {
+            return new Scoreboard();
+        }
     }
 }

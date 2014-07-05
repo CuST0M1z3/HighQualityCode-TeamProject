@@ -1,22 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-
-namespace Labyrinth.Statistics
+﻿namespace Labyrinth.Statistics
 {
+    using System;
+    using System.IO;
+    using System.Linq;
+
     public class Scoreboard
     {
-        void create()
+        private void CreateScoreboardDatabaseFile()
         {
             FileInfo file = new FileInfo("scoreboard");
             FileStream stream = file.Open(FileMode.OpenOrCreate, FileAccess.Read);
             stream.Close();
         }
-        public void show()
+        public void ShowStatistics()
         {
-            create();
+            CreateScoreboardDatabaseFile();
             FileInfo file = new FileInfo("scoreboard");
             StreamReader fileReader = file.OpenText();
             string line = null;
@@ -33,9 +31,9 @@ namespace Labyrinth.Statistics
             fileReader.Close();
         }
 
-        public void add(string name, int score)
+        public void AddTopScoreToScoreboard(string name, int score)
         {
-            create();
+            CreateScoreboardDatabaseFile();
 
             FileInfo file = new FileInfo("scoreboard");
             StreamReader fileReader = file.OpenText();

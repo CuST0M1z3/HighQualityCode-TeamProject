@@ -67,10 +67,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleUI\Player.cs" />
     <Compile Include="Dialogs\GameDialog.cs" />
+    <Compile Include="Engine\LabyrinthFactory.cs" />
     <Compile Include="Enumerations\Directions.cs" />
-    <Compile Include="Interfaces\IMovable.cs" />
+    <Compile Include="Interfaces\IPlayer.cs" />
+    <Compile Include="Interfaces\IPlayfield.cs" />
+    <Compile Include="Engine\LabyrinthEngine.cs" />
+    <Compile Include="Players\Player.cs" />
     <Compile Include="Statistics\Scoreboard.cs" />
     <Compile Include="ConsoleUI\Playfield.cs" />
     <Compile Include="GameLabyrinth.cs" />

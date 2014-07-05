@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Labyrinth.Enumerations;
-using Labyrinth.Interfaces;
-
-namespace Labyrinth.ConsoleUI
+﻿namespace Labyrinth.Players
 {
-    public class Player
+    using System;
+    using Labyrinth.Enumerations;
+    using Labyrinth.Interfaces;
+
+    public class Player : IPlayer
     {
         private const int DEFAULT_X_POSITTION = 3;
         private const int DEFAULT_Y_POSITTION = 3;
@@ -48,7 +45,7 @@ namespace Labyrinth.ConsoleUI
                 this.yPosition = value;
             }
         }
-    
+
         public void Move(Directions direction)
         {
             switch (direction)
@@ -67,19 +64,6 @@ namespace Labyrinth.ConsoleUI
                     break;
                 default:
                     break;
-            }
-        }
-
-        public bool IsWinning()
-        {
-            int playfieldSize = Playfield.GetPlayfieldSize();
-            if (this.XPosition == 0 || this.XPosition == (playfieldSize - 1) || this.YPosition == 0 || this.YPosition == (playfieldSize - 1))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
             }
         }
     }

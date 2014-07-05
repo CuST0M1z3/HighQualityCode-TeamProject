@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Labyrinth.Enumerations;
-
-namespace Labyrinth.ConsoleUI
+﻿namespace Labyrinth.ConsoleUI
 {
-    public class Playfield
+    using System;
+    using Labyrinth.Enumerations;
+    using Labyrinth.Players;
+    using Labyrinth.Interfaces;
+
+    public class Playfield : IPlayfield
     {
         private const int PLAYFIELD_SIZE = 7;
         private int[,] Labyrinth { get; set; }        
@@ -16,7 +15,7 @@ namespace Labyrinth.ConsoleUI
             this.Labyrinth = new int[PLAYFIELD_SIZE, PLAYFIELD_SIZE];
         }
 
-        private bool IsInPlayfieldRange(Player player)
+        public bool IsPlayerIsInPlayfieldRange(Player player)
         {
             if (0 <= player.XPosition && player.XPosition < PLAYFIELD_SIZE && 0 <= player.YPosition && player.YPosition < PLAYFIELD_SIZE)
             {
@@ -28,9 +27,16 @@ namespace Labyrinth.ConsoleUI
             }
         }
 
-        public static int GetPlayfieldSize()
+        public bool IsPlayerWinning(Player player)
         {
-            return PLAYFIELD_SIZE;
+            if (player.XPosition == 0 || player.XPosition == (PLAYFIELD_SIZE - 1) || player.YPosition == 0 || player.YPosition == (PLAYFIELD_SIZE - 1))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         //public bool move(Direction direction)
@@ -43,7 +49,7 @@ namespace Labyrinth.ConsoleUI
 
         public bool IsValidMovePosition(Player player)
         {
-            return ((Labyrinth[player.XPosition, player.YPosition] == 0) && (IsInPlayfieldRange(player)));
+            return ((Labyrinth[player.XPosition, player.YPosition] == 0) && (IsPlayerIsInPlayfieldRange(player)));
         }
 
         //bool isValidMove(Player position, Direction direction)
@@ -135,7 +141,7 @@ namespace Labyrinth.ConsoleUI
 
             while (true)
             {
-                if (player.IsWinning())
+                if (IsPlayerWinning(player))
                 {
                     break;
                 }

@@ -4,6 +4,7 @@
     {
         void IntroMessage();
         void InvalidMoveMessage();
+        void InvalidCommandMessage();
         void EnterYourMoveMessage();
         void WinnerMessage(int numberOfMoves);
     }

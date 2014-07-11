@@ -115,7 +115,7 @@
                         }
                         break;
                     default:
-                        this.dialogs.InvalidMoveMessage();
+                        this.dialogs.InvalidCommandMessage();
                         break;
                 }
 

@@ -7,7 +7,12 @@
     {
         public void InvalidMoveMessage()
         {
-            Console.WriteLine("* Invalid move!");
+            Console.WriteLine("Invalid move!");
+        }
+
+        public void InvalidCommandMessage()
+        {
+            Console.WriteLine("Invalid command!");
         }
 
         public void EnterYourMoveMessage()

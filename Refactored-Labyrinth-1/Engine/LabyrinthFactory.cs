@@ -25,6 +25,11 @@
             return new Player();
         }
 
+        public IPlayer CreatePlayer(int xPosition, int yPosition)
+        {
+            return new Player(xPosition, yPosition);
+        }      
+
         public IScoreboard CreateScoreboard()
         {
             return new Scoreboard();

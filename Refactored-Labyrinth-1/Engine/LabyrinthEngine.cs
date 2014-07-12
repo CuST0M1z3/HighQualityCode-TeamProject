@@ -149,7 +149,7 @@
         {
             Console.WriteLine("\nSaving state --\n");
             this.playfield.PrintPlayfield(this.player);
-            return new Memento(this.factory, this.playfield, this.player, this.dialogs, this.scoreboard, this.numberOfMoves);
+            return new Memento(this.factory, this.playfield, new Player(this.player.XPosition, this.player.YPosition), this.dialogs, this.scoreboard, this.numberOfMoves);
         }
 
         public void LoadMemento(Memento restore)

@@ -2,6 +2,7 @@
 {
     using System;
     using Labyrinth.Interfaces;
+    using Labyrinth.Memento;
     using Labyrinth.Players;
     using Labyrinth.Enumerations;
 
@@ -10,11 +11,13 @@
         private static readonly LabyrinthEngine singleInstance = new LabyrinthEngine();
 
         private ILabyrinthFactory factory;
-        private IPlayfield playfield; //-> Remake into Singleton Desing Pattern (Creational 1)
+        private IPlayfield playfield;
         private IPlayer player;
         private IGameDialog dialogs;
         private IScoreboard scoreboard;
         private int numberOfMoves = 0;
+        private Memento save;
+     
 
         private LabyrinthEngine()
         {
@@ -23,6 +26,7 @@
             this.player = this.factory.CreatePlayer();
             this.dialogs = this.factory.CreateDialogs();
             this.scoreboard = this.factory.CreateScoreboard();
+            this.save = new Memento(this.factory, this.playfield, this.player, this.dialogs, this.scoreboard);
         }
 
         public static LabyrinthEngine Instance
@@ -33,7 +37,6 @@
             }
         }
 
-        //Remake to a Builder Design Pattern (Creational 2)
         public void StartNewGame()
         {
             this.player = this.factory.CreatePlayer();
@@ -49,7 +52,6 @@
         {
             String input = "";
             this.dialogs.EnterYourMoveMessage();
-            //Remake using Command Desing Pattern (Behavioral 1)
             while ((input = Console.ReadLine()) != "exit")
             {
                 switch (input)
@@ -61,8 +63,14 @@
                         StartNewGame();
                         break;
                     case "exit":
-
+                    case "save":
+                        SaveMemento();
+                        break;
+                    case "load":
+                        LoadMemento(this.save);
+                        break;
                     case "L":
+                    case "l":
                         player.Move(Directions.Left);
                         if (playfield.IsValidMovePosition(player))
                         {
@@ -76,6 +84,7 @@
                         }
                         break;
                     case "U":
+                    case "u":
                         player.Move(Directions.Up);
                         if (playfield.IsValidMovePosition(player))
                         {
@@ -89,6 +98,7 @@
                         }
                         break;
                     case "R":
+                    case "r":
                         player.Move(Directions.Right);
                         if (playfield.IsValidMovePosition(player))
                         {
@@ -102,6 +112,7 @@
                         }
                         break;
                     case "D":
+                    case "d":
                         player.Move(Directions.Down);
                         if (playfield.IsValidMovePosition(player))
                         {
@@ -138,6 +149,24 @@
             }
             Console.Write("Good Bye!");
             Environment.Exit(0);
-        }     
+        }
+
+        public Memento SaveMemento()
+        {
+            Console.WriteLine("\nSaving state --\n");
+            this.playfield.PrintPlayfield(player);
+            return new Memento(this.factory, this.playfield, this.player, this.dialogs, this.scoreboard);
+        }
+
+        public void LoadMemento(Memento save)
+        {
+            Console.WriteLine("\nRestoring state --\n");
+            this.factory = save.Factory;
+            this.playfield = save.Playfield;
+            this.player = save.Player;
+            this.dialogs = save.Dialogs;
+            this.scoreboard = save.Scoreboard;
+            this.playfield.PrintPlayfield(player);
+        }
     }
 }

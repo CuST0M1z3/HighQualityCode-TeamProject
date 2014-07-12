@@ -8,3 +8,8 @@ C:\Users\soryusen\Desktop\Labyrinth\HighQualityCode-TeamProject\Refactored-Labyr
 C:\Users\soryusen\Desktop\Labyrinth\HighQualityCode-TeamProject\Refactored-Labyrinth-1\bin\Debug\Labyrinth.pdb
 C:\Users\soryusen\Desktop\Labyrinth\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\Game-Labyrinth.csprojResolveAssemblyReference.cache
 C:\Users\SpooN\Desktop\HQC-TeamProject\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\Game-Labyrinth.csprojResolveAssemblyReference.cache
+D:\Telerik Academy\HQPC-Teamwork\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\Labyrinth.exe
+D:\Telerik Academy\HQPC-Teamwork\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\Labyrinth.pdb
+D:\Telerik Academy\HQPC-Teamwork\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\Game-Labyrinth.csprojResolveAssemblyReference.cache
+D:\Telerik Academy\HQPC-Teamwork\HighQualityCode-TeamProject\Refactored-Labyrinth-1\bin\Debug\Labyrinth.exe
+D:\Telerik Academy\HQPC-Teamwork\HighQualityCode-TeamProject\Refactored-Labyrinth-1\bin\Debug\Labyrinth.pdb

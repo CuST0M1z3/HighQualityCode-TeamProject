@@ -77,6 +77,8 @@
     <Compile Include="Interfaces\IPlayfield.cs" />
     <Compile Include="Engine\LabyrinthEngine.cs" />
     <Compile Include="Interfaces\IScoreboard.cs" />
+    <Compile Include="Memento\Memento.cs" />
+    <Compile Include="Memento\SaveSystem.cs" />
     <Compile Include="Players\Player.cs" />
     <Compile Include="Statistics\Scoreboard.cs" />
     <Compile Include="ConsoleUI\Playfield.cs" />

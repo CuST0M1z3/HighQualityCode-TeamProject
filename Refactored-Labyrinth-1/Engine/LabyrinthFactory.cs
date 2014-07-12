@@ -11,7 +11,8 @@
     {
         public IPlayfield CreatePlayfield()
         {
-            return new Playfield();
+            var field = Playfield.Instance;
+            return field;
         }
 
         public IGameDialog CreateDialogs()

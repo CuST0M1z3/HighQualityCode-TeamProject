@@ -5,12 +5,22 @@
     using Labyrinth.Players;
     using Labyrinth.Interfaces;
 
-    public class Playfield : IPlayfield
+    public sealed class Playfield : IPlayfield
     {
         private const int PLAYFIELD_SIZE = 7;
-        private int[,] Labyrinth { get; set; }        
+        private int[,] Labyrinth { get; set; }
 
-        public Playfield()
+        private static readonly Playfield field = new Playfield();
+
+        public static Playfield Instance
+        {
+            get
+            {
+                return field;
+            }
+        }
+
+        private Playfield()
         {
             this.Labyrinth = new int[PLAYFIELD_SIZE, PLAYFIELD_SIZE];
         }
@@ -39,50 +49,15 @@
             }
         }
 
-        //public bool move(Direction direction)
-        //{
-        //    if (isValidMove(player, direction))
-        //        player.move(direction);
-        //    else return false;
-        //    return true;
-        //}
-
         public bool IsValidMovePosition(IPlayer player)
         {
             return ((Labyrinth[player.XPosition, player.YPosition] == 0) && (IsPlayerIsInPlayfieldRange(player)));
         }
 
-        //bool isValidMove(Player position, Direction direction)
-        //{
-        //    if (position.isWinning()) return false;
-
-        //    Player newPosition = new Player(position.x, position.y);
-
-        //    newPosition.move(direction);
-
-        //    return IsValidPosition(newPosition);
-        //}
-
         public bool IsBlankMovePosition(IPlayer player)
         {
             return Labyrinth[player.XPosition, player.YPosition] == -1;
         }
-
-        //bool isBlankPosition(Player position)
-        //{
-        //    return Labyrinth[position.x, position.y] == -1;
-        //}
-        //bool isBlankMove(Player position, Direction direction)
-        //{
-        //    Player newPosition = new Player(position.x, position.y);
-
-
-
-
-        //    newPosition.move(direction);
-
-        //    return isBlankPosition(newPosition);
-        //}
 
         public void PrintPlayfield(IPlayer player)
         {
@@ -126,19 +101,6 @@
             Directions direction = Directions.Blank;
             Random randomGenerator = new Random();
 
-            //while (!tempPos2.isWinning())
-            //{
-            //    do
-            //    {
-            //        int randomNumber = random.Next() % 4;
-            //        d = (Direction)(randomNumber);
-            //    } while (!isBlankMove(tempPos2, d));
-
-            //    tempPos2.move(d);
-
-            //    Labyrinth[tempPos2.x, tempPos2.y] = 0;
-            //}
-
             while (true)
             {
                 if (IsPlayerWinning(player))
@@ -177,30 +139,6 @@
                 }
             }
 
-            //while (!tempPos2.isWinning())
-            //{
-            //    do
-            //    {
-            //        int randomNumber = random.Next() % 4;
-            //        d = (Direction)(randomNumber);
-            //    } while (!isBlankMove(tempPos2, d));
-
-            //    tempPos2.move(d);
-
-            //    Labyrinth[tempPos2.x, tempPos2.y] = 0;
-            //}
-            //for (int i = 0; i < 7; i++)
-            //{
-            //    for (int j = 0; j < 7; j++)
-            //    {
-            //        if (Labyrinth[i, j] == -1)
-            //        {
-            //            int randomNumber = random.Next();
-            //            if (randomNumber % 3 == 0) Labyrinth[i, j] = 0;
-            //            else Labyrinth[i, j] = 1;
-            //        }
-            //    }
-            //}
         }
 
     }

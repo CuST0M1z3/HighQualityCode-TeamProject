@@ -26,6 +26,7 @@
             this.player = this.factory.CreatePlayer();
             this.dialogs = this.factory.CreateDialogs();
             this.scoreboard = this.factory.CreateScoreboard();
+            this.save = new SaveSystem();
         }
 
         public static LabyrinthEngine Instance
@@ -64,7 +65,7 @@
                     case "EXIT":
                         break;
                     case "SAVE":
-                        SaveMemento();
+                        this.save.Memento = SaveMemento();
                         break;
                     case "LOAD":
                         LoadMemento(this.save.Memento);

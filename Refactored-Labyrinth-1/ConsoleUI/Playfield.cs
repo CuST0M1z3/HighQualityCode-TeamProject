@@ -49,9 +49,11 @@
             }
         }
 
-        public bool IsValidMovePosition(IPlayer player)
+        public bool IsValidMovePosition(IPlayer player, Directions direction)
         {
-            return ((Labyrinth[player.XPosition, player.YPosition] == 0) && (IsPlayerIsInPlayfieldRange(player)));
+            IPlayer newPlayer = new Player(player.XPosition, player.YPosition);
+            newPlayer.Move(direction);
+            return ((Labyrinth[newPlayer.XPosition, newPlayer.YPosition] == 0) && (IsPlayerIsInPlayfieldRange(newPlayer)));
         }
 
         public bool IsBlankMovePosition(IPlayer player)

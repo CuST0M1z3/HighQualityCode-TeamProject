@@ -52,76 +52,69 @@
         {
             String input = "";
             this.dialogs.EnterYourMoveMessage();
-            while ((input = Console.ReadLine()) != "exit")
+            while ((input = Console.ReadLine().ToUpper()) != "exit")
             {
                 switch (input)
                 {
-                    case "top":
+                    case "TOP":
                         this.scoreboard.ShowStatistics();
                         break;
-                    case "restart":
+                    case "RESTART":
                         StartNewGame();
                         break;
-                    case "exit":
-                    case "save":
+                    case "EXIT":
+                        break;
+                    case "SAVE":
                         SaveMemento();
                         break;
-                    case "load":
+                    case "LOAD":
                         LoadMemento(this.save);
                         break;
                     case "L":
-                    case "l":
-                        player.Move(Directions.Left);
-                        if (playfield.IsValidMovePosition(player))
+                        if (playfield.IsValidMovePosition(player, Directions.Left))
                         {
+                            player.Move(Directions.Left);
                             numberOfMoves++;
                             playfield.PrintPlayfield(player);
                         }
                         else
                         {
-                            player.Move(Directions.Right);
                             this.dialogs.InvalidMoveMessage();
                         }
                         break;
                     case "U":
-                    case "u":
-                        player.Move(Directions.Up);
-                        if (playfield.IsValidMovePosition(player))
+                        if (playfield.IsValidMovePosition(player, Directions.Up))
                         {
+                            player.Move(Directions.Up);
                             numberOfMoves++;
                             playfield.PrintPlayfield(player);
                         }
                         else
                         {
-                            player.Move(Directions.Down);
                             this.dialogs.InvalidMoveMessage();
                         }
                         break;
                     case "R":
-                    case "r":
-                        player.Move(Directions.Right);
-                        if (playfield.IsValidMovePosition(player))
+                        if (playfield.IsValidMovePosition(player, Directions.Right))
                         {
+                            player.Move(Directions.Right);
                             numberOfMoves++;
                             playfield.PrintPlayfield(player);
                         }
                         else
                         {
-                            player.Move(Directions.Left);
                             this.dialogs.InvalidMoveMessage();
                         }
                         break;
                     case "D":
-                    case "d":
-                        player.Move(Directions.Down);
-                        if (playfield.IsValidMovePosition(player))
+                        if (playfield.IsValidMovePosition(player, Directions.Down))
                         {
+                            player.Move(Directions.Down);
                             numberOfMoves++;
                             playfield.PrintPlayfield(player);
                         }
                         else
                         {
-                            player.Move(Directions.Up);
                             this.dialogs.InvalidMoveMessage();
                         }
                         break;

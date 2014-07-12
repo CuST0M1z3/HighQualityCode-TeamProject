@@ -52,7 +52,7 @@
         {
             String input = "";
             this.dialogs.EnterYourMoveMessage();
-            while ((input = Console.ReadLine().ToUpper()) != "exit")
+            while ((input = Console.ReadLine().ToUpper()) != "EXIT")
             {
                 switch (input)
                 {

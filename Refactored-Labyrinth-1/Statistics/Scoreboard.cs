@@ -6,75 +6,105 @@
 
     public class Scoreboard : IScoreboard
     {
-        private void CreateScoreboardDatabaseFile()
+        private FileInfo CreateScoreboardDatabaseFile()
         {
-            FileInfo file = new FileInfo("scoreboard");
-            FileStream stream = file.Open(FileMode.OpenOrCreate, FileAccess.Read);
-            stream.Close();
+            FileInfo scoreboardDatabaseFile = new FileInfo("scoreboard");
+            using (FileStream fileStream = scoreboardDatabaseFile.Open(FileMode.OpenOrCreate, FileAccess.Read))
+            {
+                fileStream.Close();
+            }
+
+            return scoreboardDatabaseFile;
         }
         public void ShowStatistics()
         {
-            CreateScoreboardDatabaseFile();
-            FileInfo file = new FileInfo("scoreboard");
-            StreamReader fileReader = file.OpenText();
-            string line = null;
-            bool isEmpty = true;
-            int i = 0;
-            while ((line = fileReader.ReadLine()) != null)
+            FileInfo scoreboardFile = CreateScoreboardDatabaseFile();
+            using (StreamReader scoreboardReader = scoreboardFile.OpenText())
             {
-                isEmpty = false;
-                string[] nameAndScore = line.Split();
-                Console.WriteLine("{0}: {1}->{2}", ++i, nameAndScore[0], nameAndScore[1]);
-            }
+                string lineToRead = null;
+                bool isEmptyScoreboard = true;
+                string[] scores;
+                int playerScoreboardPosition = 1;
+                while ((lineToRead = scoreboardReader.ReadLine()) != null)
+                {
+                    isEmptyScoreboard = false;
+                    scores = lineToRead.Split();
+                    Console.WriteLine("{0}: {1} -> {2}", playerScoreboardPosition, scores[0], scores[1]);
+                    playerScoreboardPosition++;
+                }
 
-            if (isEmpty) Console.WriteLine("Scoreboard is empty.");
-            fileReader.Close();
+                if (isEmptyScoreboard)
+                {
+                    Console.WriteLine("Scoreboard is empty.");
+                } 
+            }
         }
 
-        public void AddTopScoreToScoreboard(string name, int score)
+        public void AddTopScoreToScoreboard(string playerName, int playerScore)
         {
-            CreateScoreboardDatabaseFile();
-
-            FileInfo file = new FileInfo("scoreboard");
-            StreamReader fileReader = file.OpenText();
-            String line = null;
-            int index = 0;
-            int[] scores = new int[5];
-            string[] names = new string[5];
-            while ((line = fileReader.ReadLine()) != null)
+            FileInfo scoreboardFile = CreateScoreboardDatabaseFile();
+            int lineIndex = 0;
+            int[] playerScores = new int[5];
+            string[] playerNames = new string[5];
+            using (StreamReader scoreboardReader = scoreboardFile.OpenText())
             {
-                string[] nameAndScore = line.Split();
-                scores[index] = Int32.Parse(nameAndScore[1]);
-                names[index++] = nameAndScore[0];
-            }
-            if (index < 5)
-            {
-                scores[index] = score;
-                names[index] = name;
-            }
-            else
-                if (score < scores[index - 1])
+                string lineToRead = null;                                
+                string[] scores;
+                while ((lineToRead = scoreboardReader.ReadLine()) != null)
                 {
-                    scores[index - 1] = score;
-                    names[index - 1] = name;
+                    scores = lineToRead.Split();
+                    playerNames[lineIndex] = scores[0];
+                    playerScores[lineIndex] = int.Parse(scores[1]);
+                    lineIndex++;
                 }
-            if (index == 5) index = 4;
-            for (int i = 0; i <= index - 1; i++)
-                for (int j = i + 1; j <= index; j++)
-                    if (scores[i] > scores[j])
+
+                if (lineIndex < 5)
+                {
+                    playerScores[lineIndex] = playerScore;
+                    playerNames[lineIndex] = playerName;
+                }
+                else
+                {
+                    lineIndex--;
+                    if (playerScore < playerScores[lineIndex])
                     {
-                        int swapValue = scores[i];
-                        scores[i] = scores[j];
-                        scores[j] = swapValue;
-                        string swapValueString = names[i];
-                        names[i] = names[j];
-                        names[j] = swapValueString;
+                        playerScores[lineIndex] = playerScore;
+                        playerNames[lineIndex] = playerName;
                     }
-            fileReader.Close();
-            StreamWriter fileWriter = file.CreateText();
-            for (int i = 0; i <= index; i++)
-                fileWriter.WriteLine("{0} {1}", names[i], scores[i], i + 1);
-            fileWriter.Close();
+                    else
+                    {
+                        scoreboardReader.Close();
+                    }
+                }
+
+                int swapScore;
+                string swapName = String.Empty;
+
+                for (int i = 0; i < lineIndex; i++)
+                {
+                    for (int j = i + 1; j <= lineIndex; j++)
+                    {
+                        if (playerScores[i] > playerScores[j])
+                        {
+                            swapScore = playerScores[i];
+                            playerScores[i] = playerScores[j];
+                            playerScores[j] = swapScore;
+
+                            swapName = playerNames[i];
+                            playerNames[i] = playerNames[j];
+                            playerNames[j] = swapName;
+                        }
+                    }
+                }
+            }
+
+            using (StreamWriter updateScoreboardFile = scoreboardFile.CreateText())
+            {
+                for (int i = 0; i <= lineIndex; i++)
+                {
+                    updateScoreboardFile.WriteLine("{0} {1}", playerNames[i], playerScores[i]);
+                }
+            }
         }
     }
 }

@@ -102,7 +102,6 @@
             this.player = this.factory.CreatePlayer();
             this.dialogs = this.factory.CreateDialogs();
             this.scoreboard = this.factory.CreateScoreboard();
-            this.save = new SaveSystem();
         }
 
         public static LabyrinthEngine Instance
@@ -120,7 +119,6 @@
             this.playfield.ResetPlayfield();
             Console.WriteLine();
             this.playfield.PrintPlayfield(player);
-            this.save = new SaveSystem();
             numberOfMoves = 0;
             ReadCommands();
         }
@@ -142,7 +140,7 @@
                     case "EXIT":
                         break;
                     case "SAVE":
-                        this.save.Memento = SaveMemento();
+                        SaveMemento();
                         break;
                     case "LOAD":
                         LoadMemento(this.save.Memento);

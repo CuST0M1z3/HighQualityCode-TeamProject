@@ -18,82 +18,6 @@
         private int numberOfMoves = 0;
         private SaveSystem save;
 
-        public ILabyrinthFactory Factory
-        {
-            get
-            {
-                return this.factory;
-            }
-
-            set
-            {
-                this.factory = value;
-            }
-        }
-
-        public IPlayfield Playfield
-        {
-            get
-            {
-                return this.playfield;
-            }
-
-            set
-            {
-                this.playfield = value;
-            }
-        }
-
-        public IPlayer Player
-        {
-            get
-            {
-                return this.player;
-            }
-
-            set
-            {
-                this.player = value;
-            }
-        }
-
-        public IGameDialog Dialogs
-        {
-            get
-            {
-                return this.dialogs;
-            }
-
-            set
-            {
-                this.dialogs = value;
-            }
-        }
-
-        public int NumberOfMoves
-        {
-            get
-            {
-                return this.numberOfMoves;
-            }
-
-            set
-            {
-                this.numberOfMoves = value;
-            }
-        }
-        public IScoreboard Scoreboard
-        {
-            get
-            {
-                return this.scoreboard;
-            }
-
-            set
-            {
-                this.scoreboard = value;
-            }
-        }
         
         private LabyrinthEngine()
         {
@@ -232,12 +156,12 @@
         public void LoadMemento(Memento restore)
         {
             Console.WriteLine("\nRestoring state --\n");
-            this.Factory = restore.Factory;
-            this.Playfield = restore.Playfield;
-            this.Player = restore.Player;
-            this.Dialogs = restore.Dialogs;
-            this.Scoreboard = restore.Scoreboard;
-            this.NumberOfMoves = restore.NumberOfMoves;
+            this.factory = restore.Factory;
+            this.playfield = restore.Playfield;
+            this.player = restore.Player;
+            this.dialogs = restore.Dialogs;
+            this.scoreboard = restore.Scoreboard;
+            this.numberOfMoves = restore.NumberOfMoves;
         }
     }
 }

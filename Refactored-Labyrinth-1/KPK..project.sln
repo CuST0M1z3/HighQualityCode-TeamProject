@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game-Labyrinth", "Game-Labyrinth.csproj", "{868F72F8-A619-4264-984F-260311D792BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameLabyrinth", "GameLabyrinth.csproj", "{868F72F8-A619-4264-984F-260311D792BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameLabyrinthTests", "..\Game-LabyrinthTests\GameLabyrinthTests.csproj", "{7EC1BAE1-88E0-4130-8BB3-A2AFBD19CCA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,10 @@ Global
 		{868F72F8-A619-4264-984F-260311D792BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{868F72F8-A619-4264-984F-260311D792BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{868F72F8-A619-4264-984F-260311D792BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EC1BAE1-88E0-4130-8BB3-A2AFBD19CCA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EC1BAE1-88E0-4130-8BB3-A2AFBD19CCA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EC1BAE1-88E0-4130-8BB3-A2AFBD19CCA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EC1BAE1-88E0-4130-8BB3-A2AFBD19CCA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

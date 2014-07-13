@@ -40,10 +40,10 @@
         public void StartNewGame()
         {
             this.player = this.factory.CreatePlayer();
-            this.dialogs.IntroMessage();
+            Console.WriteLine(this.dialogs.IntroMessage());
             this.playfield.ResetPlayfield();
             Console.WriteLine();
-            this.playfield.PrintPlayfield(player);
+            Console.WriteLine(this.playfield.PrintPlayfield(player));
             numberOfMoves = 0;
             ReadCommands();
         }
@@ -51,7 +51,7 @@
         private void ReadCommands()
         {
             String input = "";
-            this.dialogs.EnterYourMoveMessage();
+            Console.Write(this.dialogs.EnterYourMoveMessage());
             while ((input = Console.ReadLine().ToUpper()) != "EXIT")
             {
                 switch (input)
@@ -69,18 +69,18 @@
                         break;
                     case "LOAD":
                         LoadMemento(this.save.Memento);
-                        this.playfield.PrintPlayfield(player);
+                        Console.WriteLine(this.playfield.PrintPlayfield(player));
                         break;
                     case "L":
                         if (playfield.IsValidMovePosition(player, Directions.Left))
                         {
                             player.Move(Directions.Left);
                             numberOfMoves++;
-                            playfield.PrintPlayfield(player);
+                            Console.WriteLine(this.playfield.PrintPlayfield(player));
                         }
                         else
                         {
-                            this.dialogs.InvalidMoveMessage();
+                            Console.WriteLine(this.dialogs.InvalidMoveMessage());
                         }
                         break;
                     case "U":
@@ -88,11 +88,11 @@
                         {
                             player.Move(Directions.Up);
                             numberOfMoves++;
-                            playfield.PrintPlayfield(player);
+                            Console.WriteLine(this.playfield.PrintPlayfield(player));
                         }
                         else
                         {
-                            this.dialogs.InvalidMoveMessage();
+                            Console.WriteLine(this.dialogs.InvalidMoveMessage());
                         }
                         break;
                     case "R":
@@ -100,11 +100,11 @@
                         {
                             player.Move(Directions.Right);
                             numberOfMoves++;
-                            playfield.PrintPlayfield(player);
+                            Console.WriteLine(this.playfield.PrintPlayfield(player));
                         }
                         else
                         {
-                            this.dialogs.InvalidMoveMessage();
+                            Console.WriteLine(this.dialogs.InvalidMoveMessage());
                         }
                         break;
                     case "D":
@@ -112,21 +112,21 @@
                         {
                             player.Move(Directions.Down);
                             numberOfMoves++;
-                            playfield.PrintPlayfield(player);
+                            Console.WriteLine(this.playfield.PrintPlayfield(player));
                         }
                         else
                         {
-                            this.dialogs.InvalidMoveMessage();
+                            Console.WriteLine(this.dialogs.InvalidMoveMessage());
                         }
                         break;
                     default:
-                        this.dialogs.InvalidCommandMessage();
+                        Console.WriteLine(this.dialogs.InvalidCommandMessage());
                         break;
                 }
 
                 if (playfield.IsPlayerWinning(player))  //-> Observer Pattern (Behavioral 2)
                 {
-                    this.dialogs.WinnerMessage(numberOfMoves);
+                    Console.Write(this.dialogs.WinnerMessage(numberOfMoves));
                     string name = Console.ReadLine();
                     try
                     {
@@ -139,7 +139,7 @@
                     Console.WriteLine();
                     StartNewGame();
                 }
-                this.dialogs.EnterYourMoveMessage();
+                Console.Write(this.dialogs.EnterYourMoveMessage());
             }
             Console.Write("Good Bye!");
             Environment.Exit(0);
@@ -148,7 +148,7 @@
         public Memento SaveMemento()
         {
             Console.WriteLine("\nSaving state --\n");
-            this.playfield.PrintPlayfield(this.player);
+            Console.WriteLine(this.playfield.PrintPlayfield(this.player));
             return new Memento(this.factory, this.playfield, new Player(this.player.XPosition, this.player.YPosition), this.dialogs, this.scoreboard, this.numberOfMoves);
         }
 

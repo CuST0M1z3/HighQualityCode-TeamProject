@@ -4,6 +4,7 @@
     using Labyrinth.Enumerations;
     using Labyrinth.Players;
     using Labyrinth.Interfaces;
+    using System.Text;
 
     public sealed class Playfield : IPlayfield
     {
@@ -23,6 +24,16 @@
         private Playfield()
         {
             this.Labyrinth = new int[PLAYFIELD_SIZE, PLAYFIELD_SIZE];
+        }
+
+        public int[,] GetLabyrinthArray()
+        {
+            return this.Labyrinth;
+        }
+
+        public void SetLabyrinthArray(int[,] playfieldArray)
+        {
+            this.Labyrinth = playfieldArray;
         }
 
         public bool IsPlayerIsInPlayfieldRange(IPlayer player)
@@ -61,30 +72,33 @@
             return Labyrinth[player.XPosition, player.YPosition] == -1;
         }
 
-        public void PrintPlayfield(IPlayer player)
+        public string PrintPlayfield(IPlayer player)
         {
+            StringBuilder result = new StringBuilder();
             for (int playfieldCol = 0; playfieldCol < PLAYFIELD_SIZE; playfieldCol++)
             {
                 for (int playfieldRow = 0; playfieldRow < PLAYFIELD_SIZE; playfieldRow++)
                 {
                     if (player.XPosition == playfieldRow && player.YPosition == playfieldCol)
                     {
-                        Console.Write("*");
+                        result.Append("*");
                     }
                     else
                     {
                         if (Labyrinth[playfieldRow, playfieldCol] == 0)
                         {
-                            Console.Write("-");
+                            result.Append("-");
                         }
                         else
                         {
-                            Console.Write("X");
+                            result.Append("X");
                         }
                     }
                 }
-                Console.WriteLine();
+                result.Append("\n");
             }
+
+            return result.ToString();
         }
 
         public void ResetPlayfield()

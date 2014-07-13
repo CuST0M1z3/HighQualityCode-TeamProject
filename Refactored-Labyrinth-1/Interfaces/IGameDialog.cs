@@ -2,10 +2,10 @@
 {
     public interface IGameDialog
     {
-        void IntroMessage();
-        void InvalidMoveMessage();
-        void InvalidCommandMessage();
-        void EnterYourMoveMessage();
-        void WinnerMessage(int numberOfMoves);
+        string IntroMessage();
+        string InvalidMoveMessage();
+        string InvalidCommandMessage();
+        string EnterYourMoveMessage();
+        string WinnerMessage(int numberOfMoves);
     }
 }

@@ -5,29 +5,36 @@
 
     public class GameDialog : IGameDialog
     {
-        public void InvalidMoveMessage()
+        private const string INVALID_MOVE_MESSAGE = "Invalid move!";
+        private const string INVALID_COMMAND_MESSAGE = "Invalid command!";
+        private const string ENTER_MOVE_MESSAGE = "Enter your move (L=left, R=right, U=up, D=down): ";
+        private const string INTRO_MESSAGE = "Welcome to \"Labyrinth\" game. Please try to escape. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.";
+        private const string WINNER_MESSAGE = "Congratulations! You escaped in {0} moves.\nPlease enter your name for the top scoreboard: ";
+
+        public string InvalidMoveMessage()
         {
-            Console.WriteLine("Invalid move!");
+            return INVALID_MOVE_MESSAGE;
         }
 
-        public void InvalidCommandMessage()
+        public string InvalidCommandMessage()
         {
-            Console.WriteLine("Invalid command!");
+            return INVALID_COMMAND_MESSAGE;
         }
 
-        public void EnterYourMoveMessage()
+        public string EnterYourMoveMessage()
         {
-            Console.Write("Enter your move (L=left, R=right, U=up, D=down): ");
+            return ENTER_MOVE_MESSAGE;
         }
 
-        public void IntroMessage()
+        public string IntroMessage()
         {
-            Console.WriteLine("Welcome to \"Labyrinth\" game. Please try to escape. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
+            return INTRO_MESSAGE;
         }
 
-        public void WinnerMessage(int numberOfMoves)
+        public string WinnerMessage(int numberOfMoves)
         {
-            Console.Write("Congratulations! You escaped in {0} moves.\nPlease enter your name for the top scoreboard: ", numberOfMoves);
+            string winnerMsg = String.Format(WINNER_MESSAGE, numberOfMoves);
+            return winnerMsg;
         }
     }
 }

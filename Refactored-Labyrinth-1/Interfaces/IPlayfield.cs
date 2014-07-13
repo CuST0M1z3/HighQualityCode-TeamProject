@@ -8,8 +8,10 @@
         bool IsPlayerWinning(IPlayer player);
         bool IsValidMovePosition(IPlayer player, Directions direction);
         bool IsBlankMovePosition(IPlayer player);
-        void PrintPlayfield(IPlayer player);
+        string PrintPlayfield(IPlayer player);
         void ResetPlayfield();
+        int[,] GetLabyrinthArray();
+        void SetLabyrinthArray(int[,] playfieldArray);
     }
 
 }

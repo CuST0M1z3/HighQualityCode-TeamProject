@@ -2,6 +2,7 @@
 {
     using System;
     using Labyrinth.Enumerations;
+    using Labyrinth.Engine;
     using Labyrinth.Interfaces;
 
     public class Player : IPlayer
@@ -48,22 +49,41 @@
 
         public void Move(Directions direction)
         {
-            switch (direction)
+            switch (Enumeration.GetEnumDescription(direction))
             {
-                case Directions.Left:
+                case "Left":
                     this.XPosition -= 1;
                     break;
-                case Directions.Up:
+                case "Up":
                     this.YPosition -= 1;
                     break;
-                case Directions.Right:
+                case "Right":
                     this.XPosition += 1;
                     break;
-                case Directions.Down:
+                case "Down":
                     this.YPosition += 1;
                     break;
                 default:
                     break;
+            }
+        }
+
+        public void Update(IPlayer player, IPlayfield playfield, int numberOfMoves, IScoreboard scoreboard, IGameDialog dialogs)
+        {
+            if (playfield.IsPlayerWinning(player))
+            {
+                Console.Write(dialogs.WinnerMessage(numberOfMoves));
+                string name = Console.ReadLine();
+                try
+                {
+                    scoreboard.AddTopScoreToScoreboard(name, numberOfMoves);
+                }
+                finally
+                {
+
+                }
+                Console.WriteLine();
+                LabyrinthEngine.Instance.StartNewGame();
             }
         }
     }

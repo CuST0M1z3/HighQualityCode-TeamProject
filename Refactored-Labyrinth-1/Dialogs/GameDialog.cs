@@ -8,7 +8,7 @@
         private const string INVALID_MOVE_MESSAGE = "Invalid move!";
         private const string INVALID_COMMAND_MESSAGE = "Invalid command!";
         private const string ENTER_MOVE_MESSAGE = "Enter your move (L=left, R=right, U=up, D=down): ";
-        private const string INTRO_MESSAGE = "Welcome to \"Labyrinth\" game. Please try to escape. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.";
+        private const string INTRO_MESSAGE = "Welcome to \"Labyrinth\" game. Please try to escape. Use 'top' to view the top scoreboard, 'restart' to start a new game, 'save' to save current position, 'load' to load last saved position and 'exit' to quit the game.";
         private const string WINNER_MESSAGE = "Congratulations! You escaped in {0} moves.\nPlease enter your name for the top scoreboard: ";
 
         public string InvalidMoveMessage()

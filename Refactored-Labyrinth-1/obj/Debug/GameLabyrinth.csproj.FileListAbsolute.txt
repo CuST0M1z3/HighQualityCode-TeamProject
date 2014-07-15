@@ -2,3 +2,18 @@ C:\Users\SpooN\Desktop\HQC-TeamProject\HighQualityCode-TeamProject\Refactored-La
 C:\Users\SpooN\Desktop\HQC-TeamProject\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\Labyrinth.pdb
 C:\Users\SpooN\Desktop\HQC-TeamProject\HighQualityCode-TeamProject\Refactored-Labyrinth-1\bin\Debug\Labyrinth.exe
 C:\Users\SpooN\Desktop\HQC-TeamProject\HighQualityCode-TeamProject\Refactored-Labyrinth-1\bin\Debug\Labyrinth.pdb
+D:\Telerik Academy\HQPC-Teamwork\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\Labyrinth.exe
+D:\Telerik Academy\HQPC-Teamwork\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\Labyrinth.pdb
+D:\Telerik Academy\HQPC-Teamwork\HighQualityCode-TeamProject\Refactored-Labyrinth-1\bin\Debug\Labyrinth.exe
+D:\Telerik Academy\HQPC-Teamwork\HighQualityCode-TeamProject\Refactored-Labyrinth-1\bin\Debug\Labyrinth.pdb
+D:\Telerik Academy\HQPC-Teamwork\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\GameLabyrinth.csprojResolveAssemblyReference.cache
+C:\Users\Ivan\Desktop\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\Labyrinth.exe
+C:\Users\Ivan\Desktop\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\Labyrinth.pdb
+C:\Users\Ivan\Desktop\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\GameLabyrinth.csprojResolveAssemblyReference.cache
+C:\Users\Ivan\Desktop\HighQualityCode-TeamProject\Refactored-Labyrinth-1\bin\Debug\Labyrinth.exe
+C:\Users\Ivan\Desktop\HighQualityCode-TeamProject\Refactored-Labyrinth-1\bin\Debug\Labyrinth.pdb
+D:\HighQualityCode-TeamProject\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\Labyrinth.exe
+D:\HighQualityCode-TeamProject\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\GameLabyrinth.csprojResolveAssemblyReference.cache
+D:\HighQualityCode-TeamProject\HighQualityCode-TeamProject\Refactored-Labyrinth-1\bin\Debug\Labyrinth.exe
+D:\HighQualityCode-TeamProject\HighQualityCode-TeamProject\Refactored-Labyrinth-1\bin\Debug\Labyrinth.pdb
+D:\HighQualityCode-TeamProject\HighQualityCode-TeamProject\Refactored-Labyrinth-1\obj\Debug\Labyrinth.pdb

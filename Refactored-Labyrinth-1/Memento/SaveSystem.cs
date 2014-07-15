@@ -1,7 +1,7 @@
 ﻿
 namespace Labyrinth.Memento
 {
-    internal class SaveSystem
+    public class SaveSystem
     {
         public Memento Memento { get; set; }
     }

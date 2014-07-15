@@ -71,74 +71,32 @@
                         LoadMemento(this.save.Memento);
                         Console.WriteLine(this.playfield.PrintPlayfield(player));
                         break;
-                    case "L":
-                        if (playfield.IsValidMovePosition(player, Directions.Left))
-                        {
-                            player.Move(Directions.Left);
-                            numberOfMoves++;
-                            Console.WriteLine(this.playfield.PrintPlayfield(player));
-                        }
-                        else
-                        {
-                            Console.WriteLine(this.dialogs.InvalidMoveMessage());
-                        }
-                        break;
-                    case "U":
-                        if (playfield.IsValidMovePosition(player, Directions.Up))
-                        {
-                            player.Move(Directions.Up);
-                            numberOfMoves++;
-                            Console.WriteLine(this.playfield.PrintPlayfield(player));
-                        }
-                        else
-                        {
-                            Console.WriteLine(this.dialogs.InvalidMoveMessage());
-                        }
-                        break;
-                    case "R":
-                        if (playfield.IsValidMovePosition(player, Directions.Right))
-                        {
-                            player.Move(Directions.Right);
-                            numberOfMoves++;
-                            Console.WriteLine(this.playfield.PrintPlayfield(player));
-                        }
-                        else
-                        {
-                            Console.WriteLine(this.dialogs.InvalidMoveMessage());
-                        }
-                        break;
-                    case "D":
-                        if (playfield.IsValidMovePosition(player, Directions.Down))
-                        {
-                            player.Move(Directions.Down);
-                            numberOfMoves++;
-                            Console.WriteLine(this.playfield.PrintPlayfield(player));
-                        }
-                        else
-                        {
-                            Console.WriteLine(this.dialogs.InvalidMoveMessage());
-                        }
-                        break;
                     default:
-                        Console.WriteLine(this.dialogs.InvalidCommandMessage());
-                        break;
+                        try
+                        {
+                            Directions direction = (Directions)Enum.Parse(typeof(Directions), input);
+
+                            if (playfield.IsValidMovePosition(player, direction))
+                            {
+                                player.Move(direction);
+                                numberOfMoves++;
+                                Console.WriteLine(this.playfield.PrintPlayfield(player));
+                                player.Update(this.player, this.playfield, this.numberOfMoves, this.scoreboard, this.dialogs);
+                            }
+                            else
+                            {
+                                Console.WriteLine(this.dialogs.InvalidMoveMessage());
+                            }
+                            break;
+                        }
+                        catch
+                        {
+                            Console.WriteLine(this.dialogs.InvalidCommandMessage());
+                            break;
+                        }
                 }
 
-                if (playfield.IsPlayerWinning(player))  //-> Observer Pattern (Behavioral 2)
-                {
-                    Console.Write(this.dialogs.WinnerMessage(numberOfMoves));
-                    string name = Console.ReadLine();
-                    try
-                    {
-                        this.scoreboard.AddTopScoreToScoreboard(name, numberOfMoves);
-                    }
-                    finally
-                    {
-
-                    }
-                    Console.WriteLine();
-                    StartNewGame();
-                }
+               
                 Console.Write(this.dialogs.EnterYourMoveMessage());
             }
             Console.Write("Good Bye!");
@@ -162,5 +120,6 @@
             this.scoreboard = restore.Scoreboard;
             this.numberOfMoves = restore.NumberOfMoves;
         }
+
     }
 }

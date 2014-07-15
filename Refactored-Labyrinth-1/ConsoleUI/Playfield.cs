@@ -114,9 +114,9 @@
             IPlayer player = new Player();
             Labyrinth[player.XPosition, player.YPosition] = 0;
 
-            Directions direction = Directions.Blank;
+            Directions direction = Directions.B;
             Random randomGenerator = new Random();
-
+            
             while (true)
             {
                 if (IsPlayerWinning(player))

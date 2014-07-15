@@ -5,3 +5,17 @@ C:\Users\SpooN\Desktop\HQC-TeamProject\HighQualityCode-TeamProject\Game-Labyrint
 C:\Users\SpooN\Desktop\HQC-TeamProject\HighQualityCode-TeamProject\Game-LabyrinthTests\obj\Debug\Game-LabyrinthTests.pdb
 C:\Users\SpooN\Desktop\HQC-TeamProject\HighQualityCode-TeamProject\Game-LabyrinthTests\bin\Debug\Labyrinth.exe
 C:\Users\SpooN\Desktop\HQC-TeamProject\HighQualityCode-TeamProject\Game-LabyrinthTests\bin\Debug\Labyrinth.pdb
+D:\HighQualityCode-TeamProject\HighQualityCode-TeamProject\Game-LabyrinthTests\bin\Debug\Game-LabyrinthTests.dll
+D:\HighQualityCode-TeamProject\HighQualityCode-TeamProject\Game-LabyrinthTests\bin\Debug\Game-LabyrinthTests.pdb
+D:\HighQualityCode-TeamProject\HighQualityCode-TeamProject\Game-LabyrinthTests\bin\Debug\Labyrinth.exe
+D:\HighQualityCode-TeamProject\HighQualityCode-TeamProject\Game-LabyrinthTests\bin\Debug\Labyrinth.pdb
+D:\HighQualityCode-TeamProject\HighQualityCode-TeamProject\Game-LabyrinthTests\obj\Debug\GameLabyrinthTests.csprojResolveAssemblyReference.cache
+D:\HighQualityCode-TeamProject\HighQualityCode-TeamProject\Game-LabyrinthTests\obj\Debug\Game-LabyrinthTests.dll
+D:\HighQualityCode-TeamProject\HighQualityCode-TeamProject\Game-LabyrinthTests\obj\Debug\Game-LabyrinthTests.pdb
+D:\Telerik Academy\HQPC-Teamwork\HighQualityCode-TeamProject\Game-LabyrinthTests\bin\Debug\Game-LabyrinthTests.dll
+D:\Telerik Academy\HQPC-Teamwork\HighQualityCode-TeamProject\Game-LabyrinthTests\bin\Debug\Game-LabyrinthTests.pdb
+D:\Telerik Academy\HQPC-Teamwork\HighQualityCode-TeamProject\Game-LabyrinthTests\bin\Debug\Labyrinth.exe
+D:\Telerik Academy\HQPC-Teamwork\HighQualityCode-TeamProject\Game-LabyrinthTests\bin\Debug\Labyrinth.pdb
+D:\Telerik Academy\HQPC-Teamwork\HighQualityCode-TeamProject\Game-LabyrinthTests\obj\Debug\GameLabyrinthTests.csprojResolveAssemblyReference.cache
+D:\Telerik Academy\HQPC-Teamwork\HighQualityCode-TeamProject\Game-LabyrinthTests\obj\Debug\Game-LabyrinthTests.dll
+D:\Telerik Academy\HQPC-Teamwork\HighQualityCode-TeamProject\Game-LabyrinthTests\obj\Debug\Game-LabyrinthTests.pdb

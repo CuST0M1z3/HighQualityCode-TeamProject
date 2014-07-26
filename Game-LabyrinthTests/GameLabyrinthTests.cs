@@ -4,6 +4,7 @@
     using Labyrinth.Enumerations;
     using Labyrinth.Interfaces;
     using Labyrinth.Memento;
+    using Labyrinth.Players;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
     using System.Text;
@@ -558,6 +559,72 @@
         public void PlayerUpdateMethodTest()
         {
             testObjectsFactory.Player.Update(testObjectsFactory.Player, testObjectsFactory.Playfield, 4, testObjectsFactory.Scoreboard, testObjectsFactory.Dialog);           
+        }
+        
+        [TestMethod]
+        public void TestAddingResultToScoreboard()
+        {
+            testObjectsFactory.Scoreboard.AddTopScoreToScoreboard("testPlayer", 5);
+        }
+
+        [TestMethod]
+        public void TestShowingScoreboardStatistics()
+        {
+            testObjectsFactory.Scoreboard.ShowStatistics();
+        }
+
+        [TestMethod]
+        public void TestMemento()
+        {   
+            ILabyrinthFactory factory = new LabyrinthFactory();
+            IPlayfield playfield = factory.CreatePlayfield();
+            IPlayer player= factory.CreatePlayer();
+            IGameDialog dialogs = factory.CreateDialogs();
+            IScoreboard scoreboard =  factory.CreateScoreboard();
+            int numberOfMoves = 5;
+            Memento testMemento = new Memento(factory, playfield, player, dialogs, scoreboard, numberOfMoves);
+        }
+
+
+        [TestMethod]
+        public void TestGetEnumerationDescription()
+        {
+            Directions direction = (Directions)Enum.Parse(typeof(Directions), "L");
+            var result = Labyrinth.Enumerations.Enumeration.GetEnumDescription(direction);
+            var expectedResult = "Left";
+            Assert.AreEqual(expectedResult, result);
+        }
+        public void TestGetEnumerationDescriptionBlank()
+        {
+            Directions direction = (Directions)Enum.Parse(typeof(Directions), String.Empty);
+            var result = Labyrinth.Enumerations.Enumeration.GetEnumDescription(direction);
+            var expectedResult = "Blank";
+            Assert.AreEqual(expectedResult, result);
+        }
+
+        [TestMethod]
+        public void TestSaveMememntoMethod()
+        {
+            Labyrinth.Engine.LabyrinthEngine.Instance.SaveMemento();
+        }
+
+        [TestMethod]
+        public void TestLoadMememntoMethod()
+        {
+            ILabyrinthFactory factory = new LabyrinthFactory();
+            IPlayfield playfield = factory.CreatePlayfield();
+            IPlayer player = factory.CreatePlayer();
+            IGameDialog dialogs = factory.CreateDialogs();
+            IScoreboard scoreboard = factory.CreateScoreboard();
+            int numberOfMoves = 5;
+            Memento testMemento = new Memento(factory, playfield, player, dialogs, scoreboard, numberOfMoves);
+            Labyrinth.Engine.LabyrinthEngine.Instance.LoadMemento(testMemento);
+        }
+
+        [TestMethod]
+        public void TestEnumDescrioption()
+        {
+
         }
     }
 }
